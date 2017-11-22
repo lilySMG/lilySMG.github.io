@@ -1,0 +1,45 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no">
+		<style type="text/css">
+			.content {
+				padding: 20px;
+				background-color: #f00;
+			}
+			
+			.content:after {
+				clear: both;
+				content: "";
+				display: table;
+			}
+			
+			.content .left,
+			.content .right {
+				float: left;
+				width: 50%;
+				height: 200px;
+			}
+			
+			.content .left {
+				background-color: #0f0;
+			}
+			
+			.content .right {
+				background-color: #00f;
+			}
+			
+			@media (max-width: 639px) {
+				.content .left,
+				.content .right {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<div class="content">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+
+</html>
