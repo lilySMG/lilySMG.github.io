@@ -10,12 +10,23 @@
 				padding: 0;
 			}
 			
-			a{display:inline-block;width:100%;height: 200px;line-height:200px;background-color:#f00;color:#fff;text-align: center;}
-			a:hover{background-color:#0f0;}
+			a{display:inline-block;position:relative;width:100%;height: 200px;line-height:200px;background-color:#f00;color:#fff;text-align: center;}			
+			.desc{display:none;}
+			a:hover .desc{
+					display: block;					
+					position:absolute;
+					top:0;left:0;
+					background-color:#f00;
+					color: #fff;
+					text-align:center;
+				}
 		</style>
 	</head>
 
 	<body>
-		<a href="https://www.baidu.com/">去百度</a>
+		<a href="https://www.baidu.com/">
+			<img src="123123.png"/>
+			<div class="desc">标题</div>
+		</a>
 	</body>
 </html>
