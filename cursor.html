@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script src="jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 		<style>
 			.btn{width:200px;height: 100px;line-height:100px;background-color: #f00;font-size:20px;color: #fff;text-align: center;border-radius:5px;}
 		</style>
@@ -13,10 +14,12 @@
 		<div class="btn" id="button">点击弹出alert</div>
 	</body>
 	<script type="text/javascript">
-var btn = document.getElementById("button");
-    btn.onclick =function(){
-        alert("你点击了按钮！");
-    }
+$(function(){
+	$('#button').on('click',function(){
+		alert('a');
+	})
+})
+
 
 	</script>
 </html>
