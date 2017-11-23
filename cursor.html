@@ -10,13 +10,13 @@
 	</head>
 
 	<body>
-		<div class="btn" onclick="showAlert()">点击弹出alert</div>
+		<div class="btn" id="button">点击弹出alert</div>
 	</body>
 	<script type="text/javascript">
+var btn = document.getElementById("button");
+    btn.onclick =function(){
+        alert("你点击了按钮！");
+    }
 
-			function showAlert(){
-				alert('触发元素的单击事件');
-			}
-	
 	</script>
 </html>
