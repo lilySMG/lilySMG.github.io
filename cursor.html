@@ -10,6 +10,13 @@
 	</head>
 
 	<body>
-		<div class="btn" onclick="alert('触发元素的单击事件')">点击弹出alert</div>
+		<div class="btn" onclick="showAlert()">点击弹出alert</div>
 	</body>
+	<script type="text/javascript">
+		window.onload(function(){
+			function showAlert(){
+				alert('触发元素的单击事件');
+			}
+		})
+	</script>
 </html>
