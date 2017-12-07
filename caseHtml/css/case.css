@@ -51,6 +51,9 @@ img {
 .header .nav-link .nav-link-item:first-child {
   margin-left: 0;
 }
+.header .nav-link .nav-link-item.active {
+  border-bottom: 2px solid #175540;
+}
 .header:after {
   display: table;
   content: '';
@@ -167,23 +170,23 @@ img {
   cursor: pointer;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left h3 .download-content .download-btn {
-  display: block;
+  display: none;
   background-color: #21645d;
   text-align: center;
   color: #fff;
   border-radius: 2px;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left h3 .download-content .download-img {
-  display: none;
+  display: block;
   position: absolute;
   top: 3px;
   right: 0;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left h3 .download-content.active .download-btn {
-  display: none;
+  display: block;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left h3 .download-content.active .download-img {
-  display: block;
+  display: none;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left .list-main {
   margin-top: 20px;
