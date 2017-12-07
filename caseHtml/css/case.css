@@ -67,6 +67,7 @@ img {
   border-bottom: 1px solid #bfc8ce;
 }
 .case-content .banner .banner-desc {
+  position: relative;
   margin: 0 auto;
   padding: 48px 10px;
   max-width: 1200px;
@@ -87,7 +88,10 @@ img {
   letter-spacing: 1px;
 }
 .case-content .banner .banner-desc .more-btn {
-  padding-left: 28px;
+  position: absolute;
+  bottom: 23px;
+  right: 10px;
+  display: block;
   line-height: 30px;
   color: #21645d;
 }
@@ -117,6 +121,7 @@ img {
   border-bottom: 4px solid #175540;
 }
 .case-content .list .list-tab-content {
+  display: none;
   border-top: 2px solid #79a19d;
 }
 .case-content .list .list-tab-content .list-tab-item {
@@ -147,6 +152,9 @@ img {
   text-overflow: ellipsis;
   line-height: 24px;
   font-size: 18px;
+  color: #21645d;
+}
+.case-content .list .list-tab-content .list-tab-item li .tab-item-left h3 a {
   color: #21645d;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left h3 .free-btn {
@@ -242,6 +250,9 @@ img {
 .case-content .list .list-tab-content .list-tab-item li.change-bg {
   background-color: #f2f6f6;
 }
+.case-content .list .list-tab-content:first-child {
+  display: block;
+}
 .case-content .related-recommend {
   margin: 0 auto;
   padding: 40px 10px 20px;
@@ -314,6 +325,7 @@ img {
     font-size: 14px;
   }
   .case-content .banner .banner-desc .more-btn {
+    position: static;
     margin: 12px auto 0;
     padding-left: 0;
     width: 83px;
