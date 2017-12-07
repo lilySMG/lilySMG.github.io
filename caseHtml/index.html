@@ -48,7 +48,7 @@
                                     <img class="download-img" src="./img/download-img.png" alt="">
                                 </div>
                             </h3>
-                            <div class="list-main">
+                            <div class="list-main" title="摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》">
                                 摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》
                             </div>
                         </div>
@@ -77,8 +77,8 @@
                                     <span class="download-btn">下载</span>
                                     <img class="download-img" src="./img/download-img.png" alt="">
                                 </div>
-                            </h3>
-                            <div class="list-main">
+                            </h3>                                
+                                <div class="list-main" title="摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，丰内镜微创保胆委员会在既往《指南》的基础上">
                                 摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，丰内镜微创保胆委员会在既往《指南》的基础上
                             </div>
                         </div>
@@ -196,7 +196,12 @@
     <script>
         $(function () {           
             $('.related-slider').selfSlider(300);
-            $('.list-main').wordLimit();
+            $(window).on('resize load', function () {
+                $('.list-main').each(function(){
+                    $(this).text($(this).attr('title'));
+                })
+                $('.list-main').wordLimit();
+            })
         })
         $.fn.wordLimit = function (num) {
             this.each(function () {
@@ -207,14 +212,13 @@
                         'overflow': 'visible'
                     });
                     $(this).after(copyThis);
-                   // console.log(copyThis.get(0).scrollHeight);
                     if (copyThis.get(0).scrollHeight > $(this).height()) {
                         $(this).text($(this).text().substring(0, $(this).text().length - 4));
                         $(this).html($(this).html() + '...');
                         copyThis.remove();
                         $(this).wordLimit();
                     } else {
-                        copyThis.remove(); //娓呴櫎澶嶅埗
+                        copyThis.remove(); //删除复制节点
                         return;
                     }
                 } else {
