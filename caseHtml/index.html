@@ -194,8 +194,11 @@
     </div>
     <!-- footer end -->
     <script>
-        $(function () {
-            $.fn.wordLimit = function (num) {
+        $(function () {           
+            $('.related-slider').selfSlider(300);
+            $('.list-main').wordLimit();
+        })
+        $.fn.wordLimit = function (num) {
             this.each(function () {
                 if (!num) {
                     var copyThis = $(this.cloneNode(true)).css({
@@ -223,110 +226,106 @@
                 }
             });
         };
-           //$('.related-slider').selfSlider(300);
-            $('.list-main').wordLimit();
-        })
-       
-        // $.fn.selfSlider = function (showTime) {
-        //     var $this = $(this);
-        //     $newsDiv = $this.find("[data-img='imageSlider']"),
-        //         oPosition = {}, //触点位置
-        //         $circleNum = $newsDiv.length,
-        //         $sliderIcon = $('.slider-all-num-icon'), //放置数圆点
-        //         current = 0; //当前显示图片
-        //     for (var i = 0; i < $circleNum; i++) {
-        //         var onclass = i === 0 ? ' class="on"' : '';
-        //         $sliderIcon.append('<span' + onclass + '></span>');
-        //     }; //追加计数图标
-        //     $this.height($newsDiv.height()).parents('.slider-container').eq(0).height($newsDiv.height())
-        //         .find(
-        //             '.slider-all-num-icon').css({
-        //             'top': ($newsDiv.find('img:visible').height() - 10 - 20),
-        //             'margin-left': -$('.slider-all-num-icon').outerWidth() / 2
-        //         }); //初始化赋值宽高度
-        //     var autoMove = setInterval(rollerPaly, 5e3);
-        //     $this.parents('.slider-container').hover(function () {
-        //         clearInterval(autoMove);
-        //     }, function () {
-        //         autoMove = setInterval(rollerPaly, 5e3);
-        //     }) //滑入滑出定时清除恢复
-        //     $sliderIcon.find("span").each(function (i) {
-        //         $(this).click(function () {
-        //             current = i;
-        //             $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
-        //             currentState();
-        //         });
-        //     }); //单击对应图标显示第几张图片
-        //     $(window).on('resize load', function () {
-        //         $this.height($newsDiv.height()).parents('.slider-container').eq(0).height(
-        //                 $newsDiv.height())
-        //             .find('.slider-all-num-icon').css({
-        //                 'top': ($newsDiv.find('img:visible').height() - 10 - 20),
-        //                 'margin-left': -$('.slider-all-num-icon').outerWidth() / 2
-        //             }); //响应窗口变化时重新赋值宽高度
-        //         if (isMobile) {
-        //             $this.get(0).addEventListener('touchstart', touchStartFunc, false);
-        //             $this.get(0).addEventListener('touchmove', touchMoveFunc, false);
-        //             $this.get(0).addEventListener('touchend', touchEndFunc, false);
-        //         };
+        $.fn.selfSlider = function (showTime) {
+            var $this = $(this);
+            $newsDiv = $this.find("[data-img='imageSlider']"),
+                oPosition = {}, //触点位置
+                $circleNum = $newsDiv.length,
+                $sliderIcon = $('.slider-all-num-icon'), //放置数圆点
+                current = 0; //当前显示图片
+            for (var i = 0; i < $circleNum; i++) {
+                var onclass = i === 0 ? ' class="on"' : '';
+                $sliderIcon.append('<span' + onclass + '></span>');
+            }; //追加计数图标
+            $this.height($newsDiv.height()).parents('.slider-container').eq(0).height($newsDiv.height())
+                .find(
+                    '.slider-all-num-icon').css({
+                    'top': ($newsDiv.find('img:visible').height() - 10 - 20),
+                    'margin-left': -$('.slider-all-num-icon').outerWidth() / 2
+                }); //初始化赋值宽高度
+            var autoMove = setInterval(rollerPaly, 5e3);
+            $this.parents('.slider-container').hover(function () {
+                clearInterval(autoMove);
+            }, function () {
+                autoMove = setInterval(rollerPaly, 5e3);
+            }) //滑入滑出定时清除恢复
+            $sliderIcon.find("span").each(function (i) {
+                $(this).click(function () {
+                    current = i;
+                    $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
+                    currentState();
+                });
+            }); //单击对应图标显示第几张图片
+            $(window).on('resize load', function () {
+                $this.height($newsDiv.height()).parents('.slider-container').eq(0).height(
+                        $newsDiv.height())
+                    .find('.slider-all-num-icon').css({
+                        'top': ($newsDiv.find('img:visible').height() - 10 - 20),
+                        'margin-left': -$('.slider-all-num-icon').outerWidth() / 2
+                    }); //响应窗口变化时重新赋值宽高度
+                if (isMobile) {
+                    $this.get(0).addEventListener('touchstart', touchStartFunc, false);
+                    $this.get(0).addEventListener('touchmove', touchMoveFunc, false);
+                    $this.get(0).addEventListener('touchend', touchEndFunc, false);
+                };
 
-        //     }); //页面加载或发生改变   
-        //     function rollerPaly(jduge) {
-        //         if (jduge) {
-        //             current--;
-        //             current == -1 && (current = $circleNum - 1);
-        //         } else {
-        //             current++;
-        //             current == $circleNum && (current = 0);
-        //         }; //判断显示下一张还是上一张
-        //         $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
-        //         currentState();
-        //     }; //自动轮播函数
-        //     function currentState() {
-        //         $sliderIcon.children().removeClass('on').eq(current).addClass('on');
-        //     }; //当前图片对应的状态变化
-        //     function touchPos(e) {
-        //         var touches = e.changedTouches,
-        //             l = touches.length,
-        //             touch, tagX, tagY;
-        //         for (var i = 0; i < l; i++) {
-        //             touch = touches[i];
-        //             tagX = touch.clientX;
-        //             tagY = touch.clientY;
-        //         }
-        //         oPosition.x = tagX;
-        //         oPosition.y = tagY;
-        //         return oPosition;
-        //     } //获取触点位置
+            }); //页面加载或发生改变   
+            function rollerPaly(jduge) {
+                if (jduge) {
+                    current--;
+                    current == -1 && (current = $circleNum - 1);
+                } else {
+                    current++;
+                    current == $circleNum && (current = 0);
+                }; //判断显示下一张还是上一张
+                $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
+                currentState();
+            }; //自动轮播函数
+            function currentState() {
+                $sliderIcon.children().removeClass('on').eq(current).addClass('on');
+            }; //当前图片对应的状态变化
+            function touchPos(e) {
+                var touches = e.changedTouches,
+                    l = touches.length,
+                    touch, tagX, tagY;
+                for (var i = 0; i < l; i++) {
+                    touch = touches[i];
+                    tagX = touch.clientX;
+                    tagY = touch.clientY;
+                }
+                oPosition.x = tagX;
+                oPosition.y = tagY;
+                return oPosition;
+            } //获取触点位置
 
-        //     function touchStartFunc(e) {
-        //         clearInterval(autoMove); //关闭定时器
-        //         touchPos(e);
-        //         startX = oPosition.x;
-        //         startY = oPosition.y;
-        //         temPos = $this.position().left;
-        //     } //触摸开始
+            function touchStartFunc(e) {
+                clearInterval(autoMove); //关闭定时器
+                touchPos(e);
+                startX = oPosition.x;
+                startY = oPosition.y;
+                temPos = $this.position().left;
+            } //触摸开始
 
-        //     function touchMoveFunc(e) {
-        //         touchPos(e);
-        //         var moveX = oPosition.x - startX;
-        //         var moveY = oPosition.y - startY;
-        //         if (Math.abs(moveY) < Math.abs(moveX)) {
-        //             e.preventDefault();
-        //         }
-        //     } //触摸移动 
-        //     function touchEndFunc(e) {
-        //         touchPos(e);
-        //         var moveX = oPosition.x - startX;
-        //         var moveY = oPosition.y - startY;
-        //         if (moveX > 100) {
-        //             rollerPaly(true);
-        //         } else if (moveX < -100) {
-        //             rollerPaly(false);
-        //         };
-        //         autoMove = setInterval(rollerPaly, 5e3)
-        //     } //触摸结束           
-        // };
+            function touchMoveFunc(e) {
+                touchPos(e);
+                var moveX = oPosition.x - startX;
+                var moveY = oPosition.y - startY;
+                if (Math.abs(moveY) < Math.abs(moveX)) {
+                    e.preventDefault();
+                }
+            } //触摸移动 
+            function touchEndFunc(e) {
+                touchPos(e);
+                var moveX = oPosition.x - startX;
+                var moveY = oPosition.y - startY;
+                if (moveX > 100) {
+                    rollerPaly(true);
+                } else if (moveX < -100) {
+                    rollerPaly(false);
+                };
+                autoMove = setInterval(rollerPaly, 5e3)
+            } //触摸结束           
+        };
         var isMobile = (function () {
             if (navigator.userAgent.match(/Android/i) || navigator.userAgent.indexOf('iPhone') != -1 ||
                 navigator.userAgent.indexOf('iPod') != -1 || navigator.userAgent.indexOf('iPad') != -1) {
