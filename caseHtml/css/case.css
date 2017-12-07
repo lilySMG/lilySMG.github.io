@@ -76,7 +76,9 @@ img {
   text-align: center;
 }
 .case-content .banner .banner-desc .banner-desc-content {
+  max-height: 120px;
   line-height: 30px;
+  overflow: hidden;
   font-size: 16px;
   text-indent: 30px;
   letter-spacing: 1px;
@@ -184,9 +186,9 @@ img {
   display: block;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left .list-main {
+  margin-top: 20px;
   max-height: 72px;
   overflow: hidden;
-  margin-top: 20px;
   line-height: 24px;
   letter-spacing: 1px;
 }
@@ -298,9 +300,7 @@ img {
     font-weight: bold;
   }
   .case-content .banner .banner-desc .banner-desc-content {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    max-height: 54px;
     overflow: hidden;
     line-height: 18px;
     font-size: 14px;
