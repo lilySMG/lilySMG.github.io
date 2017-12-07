@@ -109,16 +109,16 @@
             <div class="related-img-container slider-container">
                 <ul class="related-slider">
                     <li data-img="imageSlider">
-                        <img src="./img/recommend1.png" alt="">
+                        <a href="www.baidu.com"><img src="./img/recommend1.png" alt=""></a> 
                     </li>
                     <li data-img="imageSlider">
-                        <img src="./img/recommend2.png" alt="">
+                        <a href="www.wanfangdata.com.cn"><img src="./img/recommend2.png" alt=""></a> 
                     </li>
                     <li data-img="imageSlider">
-                        <img src="./img/recommend1.png" alt="">
+                        <a href="www.baidu.com"><img src="./img/recommend1.png" alt=""></a>
                     </li>
                     <li data-img="imageSlider">
-                        <img src="./img/recommend2.png" alt="">
+                        <a href="www.wanfangdata.com.cn"><img src="./img/recommend2.png" alt=""></a>                        
                     </li>
                 </ul>
                 <div class="slider-all-num-icon"></div>
@@ -323,9 +323,9 @@
                 touchPos(e);
                 var moveX = oPosition.x - startX;
                 var moveY = oPosition.y - startY;
-                if (moveX > 100) {
+                if (moveX > 50) {
                     rollerPaly(true);
-                } else if (moveX < -100) {
+                } else if (moveX < -50) {
                     rollerPaly(false);
                 };
                 autoMove = setInterval(rollerPaly, 5e3)
