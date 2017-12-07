@@ -283,7 +283,9 @@
                     current++;
                     current == $circleNum && (current = 0);
                 }; //判断显示下一张还是上一张
+                if($(window).width()<641){
                 $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
+                };
                 currentState();
             }; //自动轮播函数
             function currentState() {
