@@ -14,8 +14,8 @@
     <div class="header">
         <img src="./img/logo.png" alt="logo">
         <div class="nav-link">
-            <a class="nav-link-item" href="">万方医学网</a>
-            <a class="nav-link-item" href="">专题&活动首页</a>
+            <a class="nav-link-item add-hover-js" href="">万方医学网</a>
+            <a class="nav-link-item add-hover-js" href="">专题&活动首页</a>
         </div>
     </div>
     <div class="case-content">
@@ -32,10 +32,10 @@
         </div>
         <div class="list">
             <div class="list-tab">
-                <span class="list-tab-btn active">个案报告</span>
-                <span class="list-tab-btn">多例报告</span>
-                <span class="list-tab-btn">病例分析</span>
-                <span class="list-tab-btn">循证病例</span>
+                <span class="list-tab-btn active add-hover-js">个案报告</span>
+                <span class="list-tab-btn add-hover-js">多例报告</span>
+                <span class="list-tab-btn add-hover-js">病例分析</span>
+                <span class="list-tab-btn add-hover-js">循证病例</span>
             </div>
             <div class="list-tab-content">
                 <ul class="list-tab-item">
@@ -44,7 +44,7 @@
                             <h3>
                                 内镜微创保胆手术指南(2015版)
                                 <span class="free-btn">限免</span>
-                                <div class="download-content">
+                                <div class="download-content add-hover-js">
                                     <span class="download-btn">下载</span>
                                     <img class="download-img" src="./img/download-img.png" alt="">
                                 </div>
@@ -74,12 +74,12 @@
                             <h3>
                                 内镜微创保胆手术指南(2015版)
                                 <span class="free-btn">限免</span>
-                                <div class="download-content active">
+                                <div class="download-content add-hover-js">
                                     <span class="download-btn">下载</span>
                                     <img class="download-img" src="./img/download-img.png" alt="">
                                 </div>
-                            </h3>                                
-                                <div class="list-main more-ellipsis" title="摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，丰内镜微创保胆委员会在既往《指南》的基础上">
+                            </h3>
+                            <div class="list-main more-ellipsis" title="摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，丰内镜微创保胆委员会在既往《指南》的基础上">
                                 摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，进行了丰富和完善，从而为该技术的实施提供指导和帮助。摘要：随着对胆囊功能认识的逐渐提高，内镜微创保胆技术得到了广泛开展和普及，此项技术已在国内有了很大的发展，内镜微创保胆委员会在既往《指南》的基础上，丰内镜微创保胆委员会在既往《指南》的基础上
                             </div>
                         </div>
@@ -109,16 +109,24 @@
             <div class="related-img-container slider-container">
                 <ul class="related-slider">
                     <li data-img="imageSlider">
-                        <a href="www.baidu.com"><img src="./img/recommend1.png" alt=""></a> 
+                        <a href="www.baidu.com">
+                            <img src="./img/recommend1.png" alt="">
+                        </a>
                     </li>
                     <li data-img="imageSlider">
-                        <a href="www.wanfangdata.com.cn"><img src="./img/recommend2.png" alt=""></a> 
+                        <a href="www.wanfangdata.com.cn">
+                            <img src="./img/recommend2.png" alt="">
+                        </a>
                     </li>
                     <li data-img="imageSlider">
-                        <a href="www.baidu.com"><img src="./img/recommend1.png" alt=""></a>
+                        <a href="www.baidu.com">
+                            <img src="./img/recommend1.png" alt="">
+                        </a>
                     </li>
                     <li data-img="imageSlider">
-                        <a href="www.wanfangdata.com.cn"><img src="./img/recommend2.png" alt=""></a>                        
+                        <a href="www.wanfangdata.com.cn">
+                            <img src="./img/recommend2.png" alt="">
+                        </a>
                     </li>
                 </ul>
                 <div class="slider-all-num-icon"></div>
@@ -195,10 +203,24 @@
     </div>
     <!-- footer end -->
     <script>
-        $(function () {           
+        $(function () {
+            if (!isMobile) {
+                var removeClass;
+                $('.add-hover-js').hover(function () {                   
+                    if (!$(this).hasClass('active')) {
+                        removeClass = true;
+                        $(this).addClass('active');
+                    }
+                }, function () {
+                    if (removeClass) {
+                        removeClass = false;
+                        $(this).removeClass('active');
+                    }
+                });
+            };
             $('.related-slider').selfSlider(300);
             $(window).on('resize load', function () {
-                $('.more-ellipsis').each(function(){
+                $('.more-ellipsis').each(function () {
                     $(this).text($(this).attr('title'));
                 })
                 $('.more-ellipsis').wordLimit();
@@ -244,7 +266,7 @@
             }; //追加计数图标
             $this.height($newsDiv.height()).parents('.slider-container').eq(0).height($newsDiv.height())
                 .find(
-                    '.slider-all-num-icon').css({
+                '.slider-all-num-icon').css({
                     'top': ($newsDiv.find('img:visible').height() - 10 - 20),
                     'margin-left': -$('.slider-all-num-icon').outerWidth() / 2
                 }); //初始化赋值宽高度
@@ -263,7 +285,7 @@
             }); //单击对应图标显示第几张图片
             $(window).on('resize load', function () {
                 $this.height($newsDiv.height()).parents('.slider-container').eq(0).height(
-                        $newsDiv.height())
+                    $newsDiv.height())
                     .find('.slider-all-num-icon').css({
                         'top': ($newsDiv.find('img:visible').height() - 10 - 20),
                         'margin-left': -$('.slider-all-num-icon').outerWidth() / 2
@@ -283,8 +305,8 @@
                     current++;
                     current == $circleNum && (current = 0);
                 }; //判断显示下一张还是上一张
-                if($(window).width()<641){
-                $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
+                if ($(window).width() < 641) {
+                    $newsDiv.eq(current).fadeIn(showTime).siblings().fadeOut(showTime);
                 };
                 currentState();
             }; //自动轮播函数
