@@ -184,7 +184,7 @@ img {
   display: block;
 }
 .case-content .list .list-tab-content .list-tab-item li .tab-item-left .list-main {
-  height: 72px;
+  max-height: 72px;
   overflow: hidden;
   margin-top: 20px;
   line-height: 24px;
@@ -356,6 +356,7 @@ img {
   .case-content .list .list-tab-content .list-tab-item li .tab-item-left .list-main {
     margin-top: 15px;
     line-height: 18px;
+    max-height: 54px;
     font-size: 14px;
     letter-spacing: 1px;
   }
